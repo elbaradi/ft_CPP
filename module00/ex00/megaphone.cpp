@@ -2,12 +2,9 @@
 
 void	caps(char *str)
 {
-	while (*str)
-	{
+	for (; *str; str++)
 		if (*str >= 'a' && *str <= 'z')
-			::*str -= 32;
-		str++;
-	}
+			*str += - 'a' + 'A';
 }
 
 int	main(int argc, char **argv)
@@ -17,12 +14,10 @@ int	main(int argc, char **argv)
 		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *";
 	else
 	{
-		argv++;
-		while (*argv)
+		for (argv++; *argv; argv++)
 		{
 			caps(*argv);
 			std::cout << *argv;
-			argv++;
 		}
 	}
 	std::cout << std::endl;
